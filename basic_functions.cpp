@@ -36,18 +36,27 @@ static void generate(int x, int y)
     struct blocks stone;
     struct blocks hardstone;
     //struct blocks wood;
-    
     ground.coor_x = x % rand() % 100;
     ground.coor_y = y % rand() % 20;
     ground.name = (char*)"Dirt Block";
     stone.coor_x = x % rand() % 100;
     stone.coor_y = y % rand() % 20;
     stone.name = (char*)"Stone Block";
-    hardstone.coor_x = x % rand() % 100;
-    hardstone.coor_y = y % rand() % 20;
+    hardstone.coor_x = x % rand();
+    hardstone.coor_y = y % rand();
     hardstone.name = (char*)"Hardstone Block";
     //wood.coor_x = rand() % 500;
     //wood.name = (char*)"Standart Wood";
+    /* view of blocks */
+    /* ground.blocks_view[0] = (char*)"@@";
+    stone.blocks_view[0] = (char*)"$$";
+    hardstone.blocks_view[0] = (char*)"&&";
+    mvprintw(ground.coor_y, ground.coor_x, ground.blocks_view[0]);
+    printw("\n");
+    mvprintw(ground.coor_y, ground.coor_x, stone.blocks_view[0]);
+    printw("\n");
+    mvprintw(ground.coor_y, ground.coor_x, hardstone.blocks_view[0]);
+    printw("\n"); */
 };
 static void character(int x, int y)
 {
@@ -81,11 +90,11 @@ static void character(int x, int y)
         } else if (button == 'd')
         {
             our_character.coor_x = our_character.coor_x + 1;
-        } else if (button == 'w' && !jumping )
+        } else if (button == ' ' && !jumping )
 	{
 	    jumping=true;
 	    coor_y_recovery = our_character.coor_y;
-            our_character.coor_y-=4;
+        our_character.coor_y-=4;
     	} else if (button == 's')
     	{
         	our_character.coor_y = our_character.coor_y + 1;
@@ -109,4 +118,12 @@ static void npc(int x, int y)
     guide.bubble = (char*) "Hello, i have heard what you need help in this place. I will guide you here";
     guide.coor_x = x;
     guide.coor_y = y;
+/*    guide.npc_view[0] = (char)"@!@\n";
+    guide.npc_view[1] = (char)"&!&\n";
+    guide.npc_view[2] = (char)"! !\n";
+    for (int i = 0; i < 3; i++){
+        mvprintw(guide.coor_y, guide.coor_x, guide.npc_view[0]);
+        mvprintw(guide.coor_y+1, guide.coor_x, guide.npc_view[1]);
+        mvprintw(guide.coor_y+2, guide.coor_x, guide.npc_view[2]);
+    }*/
 } 

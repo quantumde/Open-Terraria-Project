@@ -36,9 +36,36 @@ static void character(int x, int y)
     our_character.gg_view[0] = (char*)"#%#\n";
     our_character.gg_view[1] = (char*)"$#$\n";
     our_character.gg_view[2] = (char*)"# #\n";
-    for (int i = 0; i < 3; i++)
+    char button = getch();
+    while (button == 'a')
     {
-        printw(our_character.gg_view[i]);
+        if (button == 'a')
+        {
+            our_character.coor_x = our_character.coor_x - 1;
+            for (int i = 0; i < 3; i++)
+            {
+                mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
+                mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
+                mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
+            };
+        }else{
+            break;
+        }
+    }
+    while (button == 'd')
+    {
+        if (button == 'd')
+        {
+            our_character.coor_x = our_character.coor_x + 1;
+            for (int i = 0; i < 3; i++)
+            {
+                mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
+                mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
+                mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
+            }
+        }else{
+            break;
+        }
     }
 };
 static void npc(int x, int y)

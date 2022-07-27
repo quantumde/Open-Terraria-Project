@@ -20,5 +20,5 @@ jobs:
     - run: sh static_build.sh
     - uses: actions/upload-artifact@v3
       with:
-        name: openSourceTerraria
+        name: opensourceterraria-${{ github.sha }}
         path: build/Main

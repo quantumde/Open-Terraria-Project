@@ -17,10 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v1
-    - run: sudo apt-get install libncurses5-dev -y
-    - run: ls /usr/lib/libncursesw.a
     - run: sh static_build.sh
     - uses: actions/upload-artifact@v3
       with:
-        name: my-artifact
+        name: openSourceTerraria
         path: build/Main

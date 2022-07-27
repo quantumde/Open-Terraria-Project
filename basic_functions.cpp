@@ -37,7 +37,7 @@ static void character(int x, int y)
     our_character.gg_view[1] = (char*)"$#$\n";
     our_character.gg_view[2] = (char*)"# #\n";
     char button = getch();
-    while (button != 'q')
+    while (true)
     {
         if (button == 'a')
         {
@@ -57,7 +57,8 @@ static void character(int x, int y)
                 mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
                 mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
             }
-        }
+        } else if (button == 'q')
+        	break;
         button = getch();
     }
 };

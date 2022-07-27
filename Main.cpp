@@ -8,6 +8,7 @@ int main()
     initscr();
     int x = 1;
     int y = 1;
+    noecho();
     character(x, y);
     refresh();
     getch();

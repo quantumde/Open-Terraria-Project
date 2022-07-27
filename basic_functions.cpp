@@ -58,8 +58,8 @@ static void character(int x, int y)
                 mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
             }
         } else if (button == 'q')
-        	break;
-        button = getch();
+	        break;
+	button = getch();
     }
 };
 static void npc(int x, int y)

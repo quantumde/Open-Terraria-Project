@@ -11,7 +11,6 @@ int main()
     noecho();
     character(x, y);
     refresh();
-    getch();
     endwin();
     return 0;
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <curses.h>
 #include <stdlib.h>
+#include <time.h>
 
 #if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
@@ -18,7 +19,7 @@ void get_terminal_size(int& width, int& height) {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
     width = (int)(csbi.srWindow.Right-csbi.srWindow.Left+1);
-    height = (int)(csbi.srWindow.Bottom-csbi.srWindow.Top+1);
+    height = (int)(csbi.srWindow.Bottom-csbi.srWindow.Top+1);ы
 #elif defined(__linux__)
     struct winsize w;
     ioctl(fileno(stdout), TIOCGWINSZ, &w);
@@ -74,8 +75,18 @@ static void character(int x, int y)
         {
             our_character.coor_x = our_character.coor_x + 1;
         } else if (button == 'w')
-	{
-        	our_character.coor_y = our_character.coor_y - 1;
+	    {
+            int coor_y_recovery = our_character.coor_y;
+            while (our_character.coor_y != coor_y_recovery)
+            {
+             our_character.coor_y = our_character.coor_y - 1;
+                if (our_character.coor_y == coor_y_recovery)
+                {
+                    our_character.coor_y = coor_y_recovery;
+                    break;
+                }
+            }
+
     	} else if (button == 's')
     	{
         	our_character.coor_y = our_character.coor_y + 1;

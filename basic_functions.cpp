@@ -1,7 +1,33 @@
 #include <stdio.h>
 #include <curses.h>
 #include <stdlib.h>
+
+#if defined(_WIN32)
+#define WIN32_LEAN_AND_MEAN
+#define VC_EXTRALEAN
+#include <Windows.h>
+#elif defined(__linux__)
+#include <sys/ioctl.h>
+#endif 
+
 #include "Structures.cpp"
+
+
+void get_terminal_size(int& width, int& height) {
+#if defined(_WIN32)
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    width = (int)(csbi.srWindow.Right-csbi.srWindow.Left+1);
+    height = (int)(csbi.srWindow.Bottom-csbi.srWindow.Top+1);
+#elif defined(__linux__)
+    struct winsize w;
+    ioctl(fileno(stdout), TIOCGWINSZ, &w);
+    width = (int)(w.ws_col);
+    height = (int)(w.ws_row);
+#endif
+}
+int width=0, height=0;
+
 
 static void generate(int x, int y)
 {
@@ -24,6 +50,7 @@ static void generate(int x, int y)
 };
 static void character(int x, int y)
 {
+    get_terminal_size(width, height);
     //char character_name[30];
     //int character_gender;
     //scanf("%c", character_name);
@@ -40,10 +67,10 @@ static void character(int x, int y)
     while (true)
     {
         clear();
-        if (button == 'a')
+        if (button == 'a' && our_character.coor_x > 0)
         {
             our_character.coor_x = our_character.coor_x - 1;
-        } else if (button == 'd')
+        } else if (button == 'd' && our_character.coor_x<width-3)
         {
             our_character.coor_x = our_character.coor_x + 1;
         } else if (button == 'q')

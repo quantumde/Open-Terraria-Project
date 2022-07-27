@@ -48,7 +48,7 @@ static void character(int x, int y)
                 mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
                 mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
             };
-        } elif (button == 'd')
+        } else if (button == 'd')
         {
             our_character.coor_x = our_character.coor_x + 1;
             for (int i = 0; i < 3; i++)

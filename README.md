@@ -8,7 +8,7 @@ Try to make something like Terraria, but in terminal, c++, and using only cross-
 
 #### Required
  * Meson (>= 0.62)
- * libcurses (>= 1.0)
+ * libcurses (>= 6.0)
 
 ### Build instructions
 Use Meson to configure OpenSourceTerraria and build it with ninja:

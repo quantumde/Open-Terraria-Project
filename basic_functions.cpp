@@ -64,29 +64,28 @@ static void character(int x, int y)
     our_character.gg_view[0] = (char*)"#%#\n";
     our_character.gg_view[1] = (char*)"$#$\n";
     our_character.gg_view[2] = (char*)"# #\n";
+    int coor_y_recovery = our_character.coor_y;
     char button = getch();
+    bool jumping=false;
     while (true)
     {
         clear();
+        if (our_character.coor_y != coor_y_recovery && jumping){
+		our_character.coor_y = our_character.coor_y + 1;
+        } else if (our_character.coor_y == coor_y_recovery && jumping){
+		jumping=false;
+        }
         if (button == 'a')
         {
             our_character.coor_x = our_character.coor_x - 1;
         } else if (button == 'd')
         {
             our_character.coor_x = our_character.coor_x + 1;
-        } else if (button == 'w')
-	    {
-            int coor_y_recovery = our_character.coor_y;
-            while (our_character.coor_y != coor_y_recovery)
-            {
-             our_character.coor_y = our_character.coor_y - 1;
-                if (our_character.coor_y == coor_y_recovery)
-                {
-                    our_character.coor_y = coor_y_recovery;
-                    break;
-                }
-            }
-
+        } else if (button == 'w' && !jumping )
+	{
+	    jumping=true;
+	    coor_y_recovery = our_character.coor_y;
+            our_character.coor_y-=4;
     	} else if (button == 's')
     	{
         	our_character.coor_y = our_character.coor_y + 1;

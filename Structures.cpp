@@ -1,9 +1,9 @@
 struct character
 {
-    int gender;
-    char* name;
-    int coor_x;
-    int coor_y;
+    int gender  ;
+    char* name  ;
+    int coor_x  ;
+    int coor_y  ;
     char* gg_view[3];
 };
 struct weapon

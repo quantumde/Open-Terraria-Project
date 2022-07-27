@@ -39,6 +39,7 @@ static void character(int x, int y)
     char button = getch();
     while (true)
     {
+        clear();
         if (button == 'a')
         {
             our_character.coor_x = our_character.coor_x - 1;

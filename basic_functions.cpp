@@ -19,7 +19,7 @@ void get_terminal_size(int& width, int& height) {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
     width = (int)(csbi.srWindow.Right-csbi.srWindow.Left+1);
-    height = (int)(csbi.srWindow.Bottom-csbi.srWindow.Top+1);ы
+    height = (int)(csbi.srWindow.Bottom-csbi.srWindow.Top+1);
 #elif defined(__linux__)
     struct winsize w;
     ioctl(fileno(stdout), TIOCGWINSZ, &w);

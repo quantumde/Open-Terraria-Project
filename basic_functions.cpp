@@ -67,10 +67,10 @@ static void character(int x, int y)
     while (true)
     {
         clear();
-        if (button == 'a' && our_character.coor_x > 0)
+        if (button == 'a')
         {
             our_character.coor_x = our_character.coor_x - 1;
-        } else if (button == 'd' && our_character.coor_x<width-3)
+        } else if (button == 'd')
         {
             our_character.coor_x = our_character.coor_x + 1;
         } else if (button == 'q')
@@ -81,6 +81,22 @@ static void character(int x, int y)
             mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
             mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
+	    //next code isnt work
+	button = getch();
+    if (button == 'w')
+    {
+        our_character.coor_y = our_character.coor_y - 1;
+    } else if (button == 's')
+    {
+        our_character.coor_y = our_character.coor_y + 1;
+    } else if (button == 'q')
+        break;
+    for (int i = 0; i < 3; i++)
+    {
+        mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
+        mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
+        mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
+    };
 	button = getch();
     }
 };

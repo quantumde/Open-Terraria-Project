@@ -24,7 +24,4 @@ jobs:
         directory: build
         meson-version: 0.53.2
         ninja-version: 1.9.0.post1
-    - uses: actions/upload-artifact@v3
-      with:
-        name: ${{ github.sha }}
-        path: build/ost
+

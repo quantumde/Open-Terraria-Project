@@ -4,7 +4,9 @@ struct character
     char* name  ;
     int coor_x  ;
     int coor_y  ;
+    int coor_y_recovery;
     char* gg_view[3];
+    bool jumping = false;
 };
 struct weapon
 {

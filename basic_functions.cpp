@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
@@ -59,30 +60,23 @@ static void generate(int x, int y)
     mvprintw(ground.coor_y, ground.coor_x, hardstone.blocks_view[0]);
     printw("\n"); */
 };
-static void character(int x, int y)
-{
-    get_terminal_size(width, height);
-    //char character_name[30];
-    //int character_gender;
-    //scanf("%c", character_name);
-    //scanf("%d", &character_gender);
-    struct character our_character;
-    //our_character.name = character_name;
-    //our_character.gender = character_gender;
-    our_character.coor_x = x;
-    our_character.coor_y = y;
-    our_character.gg_view[0] = (char*)"#%#\n";
-    our_character.gg_view[1] = (char*)"$#$\n";
-    our_character.gg_view[2] = (char*)"# #\n";
-    our_character.coor_y_recovery = our_character.coor_y;
+struct character our_character;
+
+void *jump_thread(void *vargp){
+    while (true){
+        while (our_character.coor_y < our_character.coor_y_recovery && our_character.jumping)
+        {    our_character.coor_y = our_character.coor_y + 1;
+	        sleep(1/60);
+
+        }
+        our_character.jumping=false;
+    }
+}
+
+void *input_thread(void *vargp){
     char button = getch();
-    while (true)
-    {
-        clear();
-        if (our_character.coor_y < our_character.coor_y_recovery && our_character.jumping){
-		our_character.coor_y = our_character.coor_y + 1;
-        } else 
-        	our_character.jumping=false;
+    while (true){
+        //clear();
         if (button == 'a')
         {
             our_character.coor_x = our_character.coor_x - 1;
@@ -96,18 +90,46 @@ static void character(int x, int y)
 	    our_character.coor_y-=4;
     	} else if (button == 's')
     	{
-        	our_character.coor_y = our_character.coor_y + 1;
+            our_character.coor_y = our_character.coor_y + 1;
         } else if (button == 'q')
-        	break;
+        {	endwin();
+        	exit(0);
+        }
         
-	
+	button = getch();
+    }
+}
+
+void character(int x, int y)
+{
+    //get_terminal_size(width, height);
+    //char character_name[30];
+    //int character_gender;
+    //scanf("%c", character_name);
+    //scanf("%d", &character_gender);
+    //our_character.name = character_name;
+    //our_character.gender = character_gender;
+    our_character.coor_x = x;
+    our_character.coor_y = y;
+    our_character.gg_view[0] = (char*)"#%#\n";
+    our_character.gg_view[1] = (char*)"$#$\n";
+    our_character.gg_view[2] = (char*)"# #\n";
+    our_character.coor_y_recovery = our_character.coor_y;
+    pthread_t jump_thread_id;
+    pthread_create(&jump_thread_id, NULL, jump_thread, NULL);
+    pthread_t input_thread_id;
+    pthread_create(&input_thread_id, NULL, input_thread, NULL);
+    while (true)
+    {
+        clear();
         for (int i = 0; i < 3; i++)
         {
-            mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
-            mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
-            mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
+ 	        mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
+        	mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
+            	mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
-	button = getch();
+        refresh();
+        sleep(1/2);
     };
 };
 static void npc(int x, int y)

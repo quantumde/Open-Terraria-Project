@@ -2,6 +2,7 @@
 #include <curses.h>
 #include <stdlib.h>
 #include <time.h>
+#include <pthread.h>
 
 #if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN

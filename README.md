@@ -3,7 +3,7 @@ Open Terraria Project
 Open Terraria Project is...
 Try to make something like Terraria, but in terminal, c++, and using only cross-platform libraries.
 
-### External
+### Externals
  * Ncurses 6.3 static library with "-fPIC" CFLAGS and CXXFLAGS
 
 ### Dependencies

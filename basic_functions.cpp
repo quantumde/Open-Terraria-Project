@@ -128,7 +128,7 @@ void character(int x, int y)
         	mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
             	mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
-        refresh();
+        //refresh(); дебил блять, нахуя нам рефреш тут, только системные требования завышаешь
         sleep(1/2);
     };
 };

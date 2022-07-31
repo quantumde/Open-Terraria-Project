@@ -58,7 +58,7 @@ void *input_thread(void *vargp)
             our_character.coor_x = our_character.coor_x + 1;
         } else if (button == ' ')
         {
-			int add_y = our_character.coor_y + 4;
+			int add_y = our_character.coor_y - 4;
 			while (our_character.coor_y != add_y)
 			{
 				our_character.coor_y = our_character.coor_y - 1;
@@ -66,11 +66,12 @@ void *input_thread(void *vargp)
 				{
 					while (our_character.coor_y != our_character.coor_y_recovery)
 					{
-						our_character.coor_y = our_character.coor_y - 1;
+						our_character.coor_y = our_character.coor_y + 1;
 						if (our_character.coor_y == our_character.coor_y_recovery)
 						{
 							break;
 						}
+						break;
 					}
 				}
 			}	
@@ -128,4 +129,5 @@ void character(int x, int y)
         }
 } 
 }*/
+
 

@@ -31,35 +31,6 @@ void get_terminal_size(int& width, int& height) {
 }
 int width=0, height=0;
 
-
-static void generate(int x, int y)
-{
-    struct blocks ground;
-    struct blocks stone;
-    struct blocks hardstone;
-    //struct blocks wood;
-    ground.coor_x = x % rand() % 100;
-    ground.coor_y = y % rand() % 20;
-    ground.name = (char*)"Dirt Block";
-    stone.coor_x = x % rand() % 100;
-    stone.coor_y = y % rand() % 20;
-    stone.name = (char*)"Stone Block";
-    hardstone.coor_x = x % rand();
-    hardstone.coor_y = y % rand();
-    hardstone.name = (char*)"Hardstone Block";
-    //wood.coor_x = rand() % 500;
-    //wood.name = (char*)"Standart Wood";
-    /* view of blocks */
-    /* ground.blocks_view[0] = (char*)"@@";
-    stone.blocks_view[0] = (char*)"$$";
-    hardstone.blocks_view[0] = (char*)"&&";
-    mvprintw(ground.coor_y, ground.coor_x, ground.blocks_view[0]);
-    printw("\n");
-    mvprintw(ground.coor_y, ground.coor_x, stone.blocks_view[0]);
-    printw("\n");
-    mvprintw(ground.coor_y, ground.coor_x, hardstone.blocks_view[0]);
-    printw("\n"); */
-};
 struct character our_character;
 
 void *jump_thread(void *vargp){
@@ -73,8 +44,10 @@ void *jump_thread(void *vargp){
     }
 }
 
-void *input_thread(void *vargp){
+void *input_thread(void *vargp)
+{
     char button = getch();
+    our_character.coor_y_recovery = our_character.coor_y;
     while (true){
         //clear();
         if (button == 'a')
@@ -83,20 +56,30 @@ void *input_thread(void *vargp){
         } else if (button == 'd')
         {
             our_character.coor_x = our_character.coor_x + 1;
-        } else if (button == ' ' && !our_character.jumping )
-	    {
-	    our_character.jumping=true;
-	    our_character.coor_y_recovery = our_character.coor_y;
-        for (int i = 0; our_character.coor_y < our_character.coor_y_recovery; i++)//блять да как этот прыжок сделать
+        } else if (button == ' ')
         {
-            sleep(1);
-            our_character.coor_y = our_character.coor_y - 1;
-        }
+			int add_y = our_character.coor_y + 4;
+			while (our_character.coor_y != add_y)
+			{
+				our_character.coor_y = our_character.coor_y - 1;
+				if (our_character.coor_y == add_y)
+				{
+					while (our_character.coor_y != our_character.coor_y_recovery)
+					{
+						our_character.coor_y = our_character.coor_y - 1;
+						if (our_character.coor_y == our_character.coor_y_recovery)
+						{
+							break;
+						}
+					}
+				}
+			}	
     	} else if (button == 's')
     	{
             our_character.coor_y = our_character.coor_y + 1;
         } else if (button == 'q')
-        {	endwin();
+        {	
+            endwin();
         	exit(0);
         }
         
@@ -145,3 +128,4 @@ void character(int x, int y)
         }
 } 
 }*/
+

@@ -52,10 +52,12 @@ void *input_thread(void *vargp)
 			while (our_character.coor_y > add_y)
 			{
 				our_character.coor_y = our_character.coor_y - 1;
+                                sleep(1/(our_character.coor_y-add_y+1));
 			}
 			while (our_character.coor_y < our_character.coor_y_recovery)
 			{
 				our_character.coor_y = our_character.coor_y + 1;
+                                sleep(1/(our_character.coor_y_recovery-our_character.coor_y+1));
 			}
 
     	} else if (button == 's')
@@ -88,7 +90,7 @@ void character(int x, int y)
         	mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
             mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
-        //refresh();
+        refresh();
         sleep(1/2);
     };
 };

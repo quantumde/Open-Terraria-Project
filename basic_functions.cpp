@@ -33,17 +33,6 @@ int width=0, height=0;
 
 struct character our_character;
 
-void *jump_thread(void *vargp){
-    while (true){
-        while (our_character.coor_y < our_character.coor_y_recovery && our_character.jumping)
-        {    our_character.coor_y = our_character.coor_y + 1;
-	        sleep(1/60);
-
-        }
-        our_character.jumping=false;
-    }
-}
-
 void *input_thread(void *vargp)
 {
     char button = getch();
@@ -58,23 +47,16 @@ void *input_thread(void *vargp)
             our_character.coor_x = our_character.coor_x + 1;
         } else if (button == ' ')
         {
-			int add_y = our_character.coor_y - 4;
+			int add_y =  our_character.coor_y - 4;
 			while (our_character.coor_y != add_y)
 			{
 				our_character.coor_y = our_character.coor_y - 1;
-				if (our_character.coor_y == add_y)
-				{
-					while (our_character.coor_y != our_character.coor_y_recovery)
-					{
-						our_character.coor_y = our_character.coor_y + 1;
-						if (our_character.coor_y == our_character.coor_y_recovery)
-						{
-							break;
-						}
-						break;
-					}
-				}
-			}	
+			}
+			while (our_character.coor_y != our_character.coor_y_recovery)
+			{
+				our_character.coor_y = our_character.coor_y + 1;
+			}
+
     	} else if (button == 's')
     	{
             our_character.coor_y = our_character.coor_y + 1;
@@ -94,8 +76,6 @@ void character(int x, int y)
     our_character.gg_view[1] = (char*)"$#$\n";
     our_character.gg_view[2] = (char*)"# #\n";
     our_character.coor_y_recovery = our_character.coor_y;
-    pthread_t jump_thread_id;
-    pthread_create(&jump_thread_id, NULL, jump_thread, NULL);
     pthread_t input_thread_id;
     pthread_create(&input_thread_id, NULL, input_thread, NULL);
     while (true)
@@ -107,7 +87,7 @@ void character(int x, int y)
         	mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
             mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
-        //refresh();
+        refresh();
         sleep(1/2);
     };
 };

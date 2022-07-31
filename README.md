@@ -14,10 +14,8 @@ Try to make something like Terraria, but in terminal, c++, and using only cross-
 
 ### Build instructions
 Start make without any target for configure and build Open Terraria in directory:
-```
-make
-```
+```make```
 
 ### Installation
 To install the compiled binaries and required data, execute:
-`sudo make install`
+```sudo make install```

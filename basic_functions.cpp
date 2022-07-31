@@ -127,7 +127,7 @@ void character(int x, int y)
         sleep(1/2);
     };
 };
-static void npc(int x, int y)
+/*static void npc(int x, int y)
 {
     struct npc guide;
     guide.name = (char*) "Mark";
@@ -144,4 +144,4 @@ static void npc(int x, int y)
             mvprintw(guide.coor_y+2, guide.coor_x, guide.npc_view[2]);
         }
 } 
-}
+}*/

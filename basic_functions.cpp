@@ -48,11 +48,12 @@ void *input_thread(void *vargp)
         } else if (button == ' ')
         {
 			int add_y =  our_character.coor_y - 4;
-			while (our_character.coor_y != add_y)
+			our_character.coor_y_recovery=our_character.coor_y;
+			while (our_character.coor_y > add_y)
 			{
 				our_character.coor_y = our_character.coor_y - 1;
 			}
-			while (our_character.coor_y != our_character.coor_y_recovery)
+			while (our_character.coor_y < our_character.coor_y_recovery)
 			{
 				our_character.coor_y = our_character.coor_y + 1;
 			}

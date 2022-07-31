@@ -21,4 +21,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: opensourceterraria-${{ github.sha }}
-        path: build/Main
+        path: ost

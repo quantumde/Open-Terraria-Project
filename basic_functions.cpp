@@ -84,10 +84,14 @@ void *input_thread(void *vargp){
         {
             our_character.coor_x = our_character.coor_x + 1;
         } else if (button == ' ' && !our_character.jumping )
-	{
+	    {
 	    our_character.jumping=true;
 	    our_character.coor_y_recovery = our_character.coor_y;
-	    our_character.coor_y-=4;
+        for (int i = 0; our_character.coor_y < our_character.coor_y_recovery; i++)//блять да как этот прыжок сделать
+        {
+            sleep(1);
+            our_character.coor_y = our_character.coor_y - 1;
+        }
     	} else if (button == 's')
     	{
             our_character.coor_y = our_character.coor_y + 1;
@@ -102,15 +106,6 @@ void *input_thread(void *vargp){
 
 void character(int x, int y)
 {
-    //get_terminal_size(width, height);
-    //char character_name[30];
-    //int character_gender;
-    //scanf("%c", character_name);
-    //scanf("%d", &character_gender);
-    //our_character.name = character_name;
-    //our_character.gender = character_gender;
-    our_character.coor_x = x;
-    our_character.coor_y = y;
     our_character.gg_view[0] = (char*)"#%#\n";
     our_character.gg_view[1] = (char*)"$#$\n";
     our_character.gg_view[2] = (char*)"# #\n";
@@ -126,9 +121,9 @@ void character(int x, int y)
         {
  	        mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
         	mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
-            	mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
+            mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
-        //refresh(); дебил блять, нахуя нам рефреш тут, только системные требования завышаешь
+        //refresh();
         sleep(1/2);
     };
 };
@@ -139,12 +134,14 @@ static void npc(int x, int y)
     guide.bubble = (char*) "Hello, i have heard what you need help in this place. I will guide you here";
     guide.coor_x = x;
     guide.coor_y = y;
-/*    guide.npc_view[0] = (char)"@!@\n";
-    guide.npc_view[1] = (char)"&!&\n";
-    guide.npc_view[2] = (char)"! !\n";
-    for (int i = 0; i < 3; i++){
-        mvprintw(guide.coor_y, guide.coor_x, guide.npc_view[0]);
-        mvprintw(guide.coor_y+1, guide.coor_x, guide.npc_view[1]);
-        mvprintw(guide.coor_y+2, guide.coor_x, guide.npc_view[2]);
-    }*/
+    while (true){
+        guide.npc_view[0] = (char*)"@!@\n";
+        guide.npc_view[1] = (char*)"&!&\n";
+        guide.npc_view[2] = (char*)"! !\n";
+        for (int i = 0; i < 3; i++){
+            mvprintw(guide.coor_y, guide.coor_x, guide.npc_view[0]);
+            mvprintw(guide.coor_y+1, guide.coor_x, guide.npc_view[1]);
+            mvprintw(guide.coor_y+2, guide.coor_x, guide.npc_view[2]);
+        }
 } 
+}

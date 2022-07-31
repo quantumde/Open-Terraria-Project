@@ -9,18 +9,15 @@ Try to make something like Terraria, but in terminal, c++, and using only cross-
 ### Dependencies
 
 #### Required
- * Meson (>= 0.62)
+ *
  * libncurses (>= 6.0)
 
 ### Build instructions
-Use Meson to configure OpenSourceTerraria and build it with ninja:
+Start make without any target for configure and build Open Terraria in directory:
 ```bash
-mkdir build
-cd build
-meson ..
-ninja
+make
 ```
 
 ### Installation
 To install the compiled binaries and required data, execute
-`ninja install` with superuser permission.
+`sudo make install`

@@ -1,4 +1,4 @@
-struct character
+struct Character
 {
     int gender  ;
     char* name  ;
@@ -8,20 +8,28 @@ struct character
     char* gg_view[3];
     bool jumping = false;
 };
-struct weapon
+struct Weapon
 {
     char name[15];
     int damage;
     char type[10];
 };
-struct blocks
+struct Blocks
 {
     int coor_x;
     int coor_y;
     char* name;
     char* blocks_view[1];
+    Blocks(int x, int y, char* n, char* view)
+    {
+        x = coor_x;
+        y = coor_y;
+        n = name;
+        view = blocks_view[1];
+
+    }
 };
-struct npc
+struct Npc
 {
     int coor_x;
     int coor_y;

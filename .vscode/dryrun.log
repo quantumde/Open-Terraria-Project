@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/user/Open-Terraria-Project'
+/usr/bin/c++ ./Main.cpp "-lncurses" "-lpthread" -o ost
+make: Leaving directory '/home/user/Open-Terraria-Project'
+ 

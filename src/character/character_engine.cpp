@@ -43,8 +43,18 @@ struct character our_character;
 void *input_thread(void *vargp)
 {
     char button = getch();
+    int x = 0;
+    int y = 0;
     our_character.coor_y_recovery = our_character.coor_y;
     while (true){
+        if (our_character.coor_x != x)
+        {
+            mvprintw(10, 30, "Camera need to go for coor x!");
+        }
+        if (our_character.coor_y != y)
+        {
+            mvprintw(10, 30, "Camera must go for Y!");
+        }
         //clear();
         if (button == 'a')
         {
@@ -79,7 +89,6 @@ void *input_thread(void *vargp)
 	button = getch();
     }
 }
-
 void character(int x, int y)
 {
     our_character.gg_view[0] = (char*)"#%#\n";

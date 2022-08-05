@@ -1,5 +1,5 @@
 #include "./character/character_engine.cpp"
-#include "./blocks/generate_engine.cpp"
+//#include "./blocks/generate_engine.cpp"
 #include <stdio.h>
 #include <stdlib.h>
 #include <curses.h>
@@ -18,8 +18,8 @@ int main()
     int x = rand() % -100;
     int y = rand() % -100;
     noecho();
-    //character(x, y);
-    world_gen(x, y);
+    character(x, y);
+    //world_gen(x, y);
     refresh();
     endwin();
     return 0;

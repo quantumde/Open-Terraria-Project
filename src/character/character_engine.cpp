@@ -38,38 +38,38 @@ void get_terminal_size(int& width, int& height) {
 }
 int width=0, height=0;
 
-struct Character our_Character;
+struct character our_character;
 
 void *input_thread(void *vargp)
 {
     char button = getch();
-    our_Character.coor_y_recovery = our_Character.coor_y;
+    our_character.coor_y_recovery = our_character.coor_y;
     while (true){
         //clear();
         if (button == 'a')
         {
-            our_Character.coor_x = our_Character.coor_x - 1;
+            our_character.coor_x = our_character.coor_x - 1;
         } else if (button == 'd')
         {
-            our_Character.coor_x = our_Character.coor_x + 1;
+            our_character.coor_x = our_character.coor_x + 1;
         } else if (button == ' ')
         {
-			int add_y =  our_Character.coor_y - 4;
-			our_Character.coor_y_recovery=our_Character.coor_y;
-			while (our_Character.coor_y > add_y)
+			int add_y =  our_character.coor_y - 4;
+			our_character.coor_y_recovery=our_character.coor_y;
+			while (our_character.coor_y > add_y)
 			{
-				our_Character.coor_y = our_Character.coor_y - 1;
-                                sleep(1/(our_Character.coor_y-add_y+1));
+				our_character.coor_y = our_character.coor_y - 1;
+                                sleep(1/(our_character.coor_y-add_y+1));
 			}
-			while (our_Character.coor_y < our_Character.coor_y_recovery)
+			while (our_character.coor_y < our_character.coor_y_recovery)
 			{
-				our_Character.coor_y = our_Character.coor_y + 1;
-                                sleep(1/(our_Character.coor_y_recovery-our_Character.coor_y+1));
+				our_character.coor_y = our_character.coor_y + 1;
+                                sleep(1/(our_character.coor_y_recovery-our_character.coor_y+1));
 			}
 
     	} else if (button == 's')
     	{
-            our_Character.coor_y = our_Character.coor_y + 1;
+            our_character.coor_y = our_character.coor_y + 1;
         } else if (button == 'q')
         {	
             endwin();
@@ -80,12 +80,12 @@ void *input_thread(void *vargp)
     }
 }
 
-void Character(int x, int y)
+void character(int x, int y)
 {
-    our_Character.gg_view[0] = (char*)"#%#\n";
-    our_Character.gg_view[1] = (char*)"$#$\n";
-    our_Character.gg_view[2] = (char*)"# #\n";
-    our_Character.coor_y_recovery = our_Character.coor_y;
+    our_character.gg_view[0] = (char*)"#%#\n";
+    our_character.gg_view[1] = (char*)"$#$\n";
+    our_character.gg_view[2] = (char*)"# #\n";
+    our_character.coor_y_recovery = our_character.coor_y;
     pthread_t input_thread_id;
     pthread_create(&input_thread_id, NULL, input_thread, NULL);
     while (true)
@@ -93,13 +93,11 @@ void Character(int x, int y)
         clear();
         for (int i = 0; i < 3; i++)
         {
- 	        mvprintw(our_Character.coor_y, our_Character.coor_x, our_Character.gg_view[0]);
-        	mvprintw(our_Character.coor_y+1, our_Character.coor_x, our_Character.gg_view[1]);
-            mvprintw(our_Character.coor_y+2, our_Character.coor_x, our_Character.gg_view[2]);
+ 	        mvprintw(our_character.coor_y, our_character.coor_x, our_character.gg_view[0]);
+        	mvprintw(our_character.coor_y+1, our_character.coor_x, our_character.gg_view[1]);
+            mvprintw(our_character.coor_y+2, our_character.coor_x, our_character.gg_view[2]);
         };
         //refresh();
         sleep(1/2);
     };
 };
-
-

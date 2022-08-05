@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug  5 10:54:55 2022
+# Make data base, printed on Fri Aug  5 23:07:04 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 1)
-SRC = ./Main.cpp
+SRC = ./src/Main.cpp
 # environment
 VSCODE_CWD = /home/user
 # environment
@@ -47,7 +47,7 @@ XDG_DATA_DIRS = /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg:/us
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/user/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /home/user/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
 # environment
 LANG = C
 # default
@@ -65,11 +65,11 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-HFQj3v8Z9Rrr/agent.1940
+SSH_AUTH_SOCK = /tmp/ssh-CdJPmI3qfh0p/agent.2745
 # default
 .SHELLFLAGS := -c
 # environment
-_LXSESSION_PID = 1940
+_LXSESSION_PID = 2745
 # environment
 XDG_CONFIG_DIRS = /etc/xdg
 # automatic
@@ -79,7 +79,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 2071
+VSCODE_PID = 2923
 # environment
 VENDOR = unknown
 # environment
@@ -95,7 +95,7 @@ XDG_DATA_HOME = /home/user/.local/share
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:abstract=/tmp/dbus-1FQok4PCMI,guid=24c743768fd339f25336295262eccc4c
+DBUS_SESSION_BUS_ADDRESS = unix:abstract=/tmp/dbus-GX02p0wo6u,guid=ad37b9587d859f8396423dff62ed5f91
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -153,7 +153,7 @@ USER = user
 # default
 MAKE_VERSION := 4.3
 # environment
-SSH_AGENT_PID = 2002
+SSH_AGENT_PID = 2806
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'Makefile', line 3)
@@ -169,7 +169,7 @@ HOME = /home/user
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-16068fa4-1.69.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-16068fa4-1.70.0-main.sock
 # environment
 XDG_SESSION_ID = 1
 # default
@@ -191,9 +191,9 @@ XDG_MENU_PREFIX = lxde-
 
 # Directories
 
-# . (device 2050, inode 139596050): 15 files, no impossibilities.
+# . (device 2050, inode 139596050): 10 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -204,7 +204,7 @@ XDG_MENU_PREFIX = lxde-
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 18:01:14.1718727
+#  Last modified 2022-08-05 23:07:01.669071066
 #  File has been updated.
 #  Successfully updated.
 
@@ -263,12 +263,12 @@ install::
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 218 B / avg = 10 B
-# current buf: size = 8162 B / used = 218 B / count = 21 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 132 B / avg = 8 B
+# current buf: size = 8162 B / used = 132 B / count = 16 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 27%
+# strcache performance: lookups = 24 / hit rate = 33%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=0/29=0%
-# Finished Make data base on Fri Aug  5 10:54:55 2022
+# Load=16/8192=0%, Rehash=0, Collisions=0/24=0%
+# Finished Make data base on Fri Aug  5 23:07:04 2022
 
  

@@ -1,4 +1,4 @@
-SRC = ./Main.cpp
+SRC = ./src/Main.cpp
 CPP = /usr/bin/c++
 CFLAGS = "-lncurses" "-lpthread"
 all::

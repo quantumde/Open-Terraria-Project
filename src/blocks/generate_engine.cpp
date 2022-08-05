@@ -12,7 +12,7 @@
 #include <sys/ioctl.h>
 #endif 
 
-#include "Structures.cpp"
+#include "../structures/Structures.cpp"
 
 
 void get_terminal_size(int& width, int& height) {

@@ -13,7 +13,7 @@
 #include <sys/ioctl.h>
 #endif 
 
-#include "Structures.cpp"
+#include "../structures/Structures.cpp"
 
 /*
     Соблюдай принципы ООП когда пишешь код!

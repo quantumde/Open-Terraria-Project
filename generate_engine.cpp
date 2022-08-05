@@ -32,5 +32,7 @@ int width=0, height=0;
 
 static void world_random_generate(int x, int y)
 {
-    Blocks ground = Blocks(x, y, "Ground", "%");
+    Blocks ground = Blocks(x, y, "Ground", '%');
+    printw("Generated ground");
+    Blocks stone = Blocks(x, y, "Stone", '$');
 }

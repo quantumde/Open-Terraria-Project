@@ -19,13 +19,13 @@ struct Blocks
     int coor_x;
     int coor_y;
     char* name;
-    char* blocks_view[1];
-    Blocks(int x, int y, char* n, char* view)
+    char blocks_view;
+    Blocks(int x, int y, char* n, char view)
     {
         x = coor_x;
         y = coor_y;
         n = name;
-        view = blocks_view[1];
+        view = blocks_view;
 
     }
 };

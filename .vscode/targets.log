@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  4 20:14:12 2022
+# Make data base, printed on Fri Aug  5 10:54:55 2022
 
 # Variables
 
@@ -59,17 +59,17 @@ MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/user/Open-Terraria-Project
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-7c90PVW4h6sI/agent.1885
+SSH_AUTH_SOCK = /tmp/ssh-HFQj3v8Z9Rrr/agent.1940
 # default
 .SHELLFLAGS := -c
 # environment
-_LXSESSION_PID = 1885
+_LXSESSION_PID = 1940
 # environment
 XDG_CONFIG_DIRS = /etc/xdg
 # automatic
@@ -79,7 +79,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 3614
+VSCODE_PID = 2071
 # environment
 VENDOR = unknown
 # environment
@@ -95,7 +95,7 @@ XDG_DATA_HOME = /home/user/.local/share
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:abstract=/tmp/dbus-VZ9eORaxmG,guid=aaf5d8285bb5df4a0fc0f08e62ebf327
+DBUS_SESSION_BUS_ADDRESS = unix:abstract=/tmp/dbus-1FQok4PCMI,guid=24c743768fd339f25336295262eccc4c
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -153,7 +153,7 @@ USER = user
 # default
 MAKE_VERSION := 4.3
 # environment
-SSH_AGENT_PID = 1947
+SSH_AGENT_PID = 2002
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'Makefile', line 3)
@@ -191,9 +191,9 @@ XDG_MENU_PREFIX = lxde-
 
 # Directories
 
-# . (device 2050, inode 139596050): 14 files, no impossibilities.
+# . (device 2050, inode 139596050): 15 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -263,12 +263,12 @@ install::
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 196 B / avg = 9 B
-# current buf: size = 8162 B / used = 196 B / count = 20 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 218 B / avg = 10 B
+# current buf: size = 8162 B / used = 218 B / count = 21 / avg = 10 B
 
-# strcache performance: lookups = 28 / hit rate = 28%
+# strcache performance: lookups = 29 / hit rate = 27%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/28=0%
-# Finished Make data base on Thu Aug  4 20:14:12 2022
+# Load=21/8192=0%, Rehash=0, Collisions=0/29=0%
+# Finished Make data base on Fri Aug  5 10:54:55 2022
 
  

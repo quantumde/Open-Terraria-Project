@@ -15,8 +15,8 @@
 int main()
 {
     initscr();
-    int x = rand() % -100;
-    int y = rand() % -100;
+    int x = 0;
+    int y = 0;
     noecho();
     character(x, y);
     //world_gen(x, y);

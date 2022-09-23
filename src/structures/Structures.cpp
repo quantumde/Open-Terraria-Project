@@ -10,9 +10,9 @@ struct character
 };
 struct weapon
 {
-    char name[15];
+    char* name;
     int damage;
-    char type[10];
+    char* type;
 };
 struct blocks
 {

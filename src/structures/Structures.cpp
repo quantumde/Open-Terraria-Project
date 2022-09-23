@@ -20,13 +20,6 @@ struct blocks
     int coor_y;
     char* name;
     char blocks_view;
-    blocks(int x, int y, char* n, char view)
-    {
-        x = coor_x;
-        y = coor_y;
-        n = name;
-        view = blocks_view;
-
     }
 };
 struct npc

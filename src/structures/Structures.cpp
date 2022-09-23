@@ -20,7 +20,6 @@ struct blocks
     int coor_y;
     char* name;
     char* blocks_view;
-    }
 };
 struct npc
 {

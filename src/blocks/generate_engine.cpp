@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <curses.h>
 #include <stdlib.h>
-#include "../structures/Structures.cpp"
+//#include "../structures/Structures.cpp"
 
 static void world_gen(int x, int y)
 {
@@ -15,7 +15,7 @@ static void world_gen(int x, int y)
         for (int j = 0; j < y; j++)
         {
             clear();
-            mvprintw(y, x, ground.blocks_view);
+            printw(ground.blocks_view);
             sleep(10);
         }
     }

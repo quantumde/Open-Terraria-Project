@@ -47,14 +47,6 @@ void *input_thread(void *vargp)
     int y = 0;
     our_character.coor_y_recovery = our_character.coor_y;
     while (true){
-        if (our_character.coor_x != x)
-        {
-            mvprintw(10, 30, "Camera need to go for coor x!");
-        }
-        if (our_character.coor_y != y)
-        {
-            mvprintw(10, 30, "Camera must go for Y!");
-        }
         //clear();
         if (button == 'a')
         {

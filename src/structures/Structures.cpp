@@ -19,7 +19,7 @@ struct blocks
     int coor_x;
     int coor_y;
     char* name;
-    char blocks_view;
+    char* blocks_view;
     }
 };
 struct npc
